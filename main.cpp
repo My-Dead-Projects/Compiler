@@ -11,17 +11,24 @@ int main() {
 
 
     std::ofstream main;
+    std::ifstream source;
     main.open("main.asm");
+    source.open("source.code");
 
-    std::string ex = "This is an example string.";
+    std::string line;
+    // Read in one line from source, and store it in line
+    std::getline(source, line); // THIS IS NOT WORKING
 
-    std::vector<std::string> tokenizedEx = tokenize(ex);
+    std::cout << "Line = " << line << std::endl;
 
-    for (std::string tok : tokenizedEx) {
+    std::vector<std::string> tokenizedLine = tokenize(line);
+
+    for (std::string tok : tokenizedLine) {
         std::cout << tok << std::endl;
     }
 
     main.close();
+    source.close();
 
     return 0;
 }
